@@ -11,7 +11,7 @@ public interface EngineRepository {
 
     void setDataSource(DataSource dataSource);
 
-    void create(Double engineCapacity);
+    Integer create(Double engineCapacity);
 
     Engine getEngine(Integer id);
 

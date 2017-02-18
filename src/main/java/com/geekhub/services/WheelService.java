@@ -28,10 +28,11 @@ public class WheelService implements WheelRepository {
     }
 
     @Override
-    public void create(Tyres tyres) {
-//        String SQL = "insert into Wheel (tyres_id) values (?)";
-//        jdbcTemplate.update(SQL, tyres);
-//        System.out.println("==> Create Tyres Name = " + name + " Size = " + size);
+    public Integer create(Integer id) {
+        String SQL = "insert into Wheel (tyres_id) values (?)";
+        Integer wheelId = jdbcTemplate.update(SQL, id);
+        System.out.println("==> Create Wheel ID = " + id);
+        return wheelId;
     }
 
     @Override

@@ -2,8 +2,9 @@ package com.geekhub.services;
 
 import com.geekhub.persistences.Car;
 import com.geekhub.persistences.Engine;
-import com.geekhub.persistences.Wheel;
 import com.geekhub.repositories.CarRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -11,14 +12,28 @@ import java.util.List;
 
 @Service
 public class CarService implements CarRepository {
+
+
+    private DataSource dataSource;
+    private JdbcTemplate jdbcTemplate;
+
     @Override
+    @Autowired
     public void setDataSource(DataSource dataSource) {
-        System.out.println("==> m:setDataSource");
+        this.dataSource = dataSource;
+    }
+
+    @Autowired
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public void create(Wheel wheels, Engine engine) {
-        System.out.println("==> m:create");
+    public Integer create(Integer wheelId, Integer engineId) {
+        String SQL = "insert into Car (wheel_id, engine_id) values (?, ?)";
+        Integer id = jdbcTemplate.update(SQL, wheelId, engineId);
+        System.out.println("==> Create Car Wheel ID = " + wheelId + " Engine ID = " + engineId);
+        return id;
     }
 
     @Override

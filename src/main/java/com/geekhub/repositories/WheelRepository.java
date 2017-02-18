@@ -12,7 +12,7 @@ public interface WheelRepository {
 
     void setDataSource(DataSource dataSource);
 
-    void create(Tyres tyres);
+    Integer create(Integer id);
 
     Wheel getWheel(Integer id);
 

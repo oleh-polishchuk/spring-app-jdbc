@@ -20,10 +20,10 @@ public class Main {
         bootstrap.bootstrap();
 
         System.out.println("------ Records Creation ------");
-        tyres.create("Continental", 20);
-        wheel.create(tyres.getTyres(1));
-//        engine.create(500.0);
-//        car.create(wheel.getWheel(1), engine.getEngine(1));
+        Integer tyresId = tyres.create("Continental", 20);
+        Integer wheelId = wheel.create(tyresId);
+        Integer engineId = engine.create(500.0);
+        Integer carId = car.create(wheelId, engineId);
 
     }
 }

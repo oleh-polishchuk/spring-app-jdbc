@@ -1,5 +1,6 @@
 package com.geekhub.services;
 
+import com.geekhub.mappers.TyresMapper;
 import com.geekhub.persistences.Tyres;
 import com.geekhub.repositories.TyresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,6 @@ public class TyresService implements TyresRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    /* I want to get the ID of item after saving to db*/
     @Override
     public Integer create(String name, Integer size) {
         String SQL = "insert into Tyres (name, size) values (?, ?)";
@@ -37,7 +37,9 @@ public class TyresService implements TyresRepository {
 
     @Override
     public Tyres getTyres(Integer id) {
-        return null;
+        String SQL = "select * from Tyres where id = ?";
+        Tyres tyres = jdbcTemplate.queryForObject(SQL, new Object[]{id}, new TyresMapper());
+        return tyres;
     }
 
     @Override

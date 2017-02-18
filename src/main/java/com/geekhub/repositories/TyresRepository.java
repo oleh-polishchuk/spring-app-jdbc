@@ -11,7 +11,7 @@ public interface TyresRepository {
 
     void setDataSource(DataSource dataSource);
 
-    void create(String name, Integer size);
+    Integer create(String name, Integer size);
 
     Tyres getTyres(Integer id);
 

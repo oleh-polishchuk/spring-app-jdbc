@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 @Entity
 public class Car {
 
+    Integer id;
     Wheel wheels;
     Engine engine;
+
+    public Car() {}
 
     public Car(Wheel wheels, Engine engine) {
         this.wheels = wheels;
@@ -17,6 +20,14 @@ public class Car {
         System.out.println("Start car ...");
         engine.start();
         wheels.roll();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Wheel getWheels() {

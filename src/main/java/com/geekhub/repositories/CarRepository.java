@@ -2,7 +2,6 @@ package com.geekhub.repositories;
 
 import com.geekhub.persistences.Car;
 import com.geekhub.persistences.Engine;
-import com.geekhub.persistences.Wheel;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -13,7 +12,7 @@ public interface CarRepository {
 
     void setDataSource(DataSource dataSource);
 
-    void create(Wheel wheels, Engine engine);
+    Integer create(Integer wheelId, Integer engineId);
 
     Car getCar(Integer id);
 
