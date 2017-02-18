@@ -1,5 +1,8 @@
-package com.geekhub;
+package com.geekhub.persistences;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Engine {
 
     Double engineCapacity;
@@ -10,5 +13,13 @@ public class Engine {
 
     public void start() {
         System.out.println("Start engine with capacity: " + engineCapacity.toString() + " litre.");
+    }
+
+    public Double getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public void setEngineCapacity(Double engineCapacity) {
+        this.engineCapacity = engineCapacity;
     }
 }
