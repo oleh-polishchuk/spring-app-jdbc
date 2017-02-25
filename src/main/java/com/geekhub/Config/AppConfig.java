@@ -37,7 +37,7 @@ public class AppConfig {
     @Value("${spring.datasource.password}")
     String password;
 
-    @Value("${engine.capacity}")
+    @Value("${engineId.capacity}")
     private Double engineCapacity;
 
     @Value("${tyres.name}")
@@ -47,8 +47,8 @@ public class AppConfig {
     private Integer tyresSize;
 
     @Bean
-    public Car car(Wheel wheel, Engine engine) {
-        return new Car(wheel, engine);
+    public Car car() {
+        return new Car();
     }
 
     @Bean

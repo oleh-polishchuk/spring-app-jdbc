@@ -6,20 +6,22 @@ import javax.persistence.Entity;
 public class Car {
 
     Integer id;
-    Wheel wheels;
-    Engine engine;
+    String name;
+    Integer wheelsId;
+    Integer engineId;
 
     public Car() {}
 
-    public Car(Wheel wheels, Engine engine) {
-        this.wheels = wheels;
-        this.engine = engine;
+    public Car(String name, Integer wheelsId, Integer engineId) {
+        this.name = name;
+        this.wheelsId = wheelsId;
+        this.engineId = engineId;
     }
 
     public void startCar() {
         System.out.println("Start car ...");
-        engine.start();
-        wheels.roll();
+//        engineId.start();
+//        wheelsId.roll();
     }
 
     public Integer getId() {
@@ -30,19 +32,27 @@ public class Car {
         this.id = id;
     }
 
-    public Wheel getWheels() {
-        return wheels;
+    public String getName() {
+        return name;
     }
 
-    public void setWheels(Wheel wheels) {
-        this.wheels = wheels;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Engine getEngine() {
-        return engine;
+    public Integer getWheelsId() {
+        return wheelsId;
     }
 
-    public void setEngine(Engine engine) {
-        this.engine = engine;
+    public void setWheelsId(Integer wheelsId) {
+        this.wheelsId = wheelsId;
+    }
+
+    public Integer getEngineId() {
+        return engineId;
+    }
+
+    public void setEngineId(Integer engineId) {
+        this.engineId = engineId;
     }
 }

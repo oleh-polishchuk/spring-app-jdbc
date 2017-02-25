@@ -56,6 +56,7 @@ public class BootstrapService implements BootstrapRepository {
 
         SQL = "CREATE TABLE IF NOT EXISTS Car (" +
                 "   ID   INT NOT NULL AUTO_INCREMENT," +
+                "   NAME   CHAR(50) NULL," +
                 "   ENGINE_ID   INT," +
                 "   WHEEL_ID   INT," +
                 "   PRIMARY KEY (ID)," +
